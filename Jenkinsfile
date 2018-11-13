@@ -1,6 +1,6 @@
 #!groovy
 
-node (label: 'myslave3') {
+node  {
 	   
 	stage('Checkout'){
 
@@ -10,18 +10,18 @@ node (label: 'myslave3') {
        stage('BuildArtifact'){
           // build step
           
-         def mvn_version = 'M3'
+         def mvn_version = 'maven'
          withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
           sh "mvn clean package"
 }
        }
 	   
-      stage('Sonar') {
+      /*stage('Sonar') {
                     //add stage sonar
 	      	 def mvn_version = 'M3'
                withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
               sh "mvn sonar:sonar"
-                }
+                }*/
       }
        
 }
