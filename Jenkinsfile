@@ -2,18 +2,21 @@
 
 node  {
 	   
-	stage('Checkout'){
+	stage('Checkout')
+	{
 
           checkout scm
        }
 
-       stage('BuildArtifact'){
+       stage('BuildArtifact')
+	{
           // build step
           
          def mvn_version = 'maven'
-         withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+         withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) 
+	 {
           sh "mvn clean package"
-}
+          }
        }
 	   
       /*stage('Sonar') {
@@ -22,6 +25,6 @@ node  {
                withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
               sh "mvn sonar:sonar"
                 }*/
-      }
+      
        
 }
