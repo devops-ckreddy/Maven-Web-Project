@@ -12,7 +12,7 @@ node {
     }
 stages {
         stage(Maven') {
-	      MAVEN_HOME = tool('M3'
+	      MAVEN_HOME = tool('M3')
            sh '${MAVEN_HOME}/bin/mvn -B verify'
         }
     }
