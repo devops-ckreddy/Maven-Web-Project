@@ -7,13 +7,16 @@ node {
           checkout scm
        }
 
-       stage('BuildArtifact'){
-          
-
-  
-   withEnv(["PATH=${M2_HOME}/bin:${PATH}"]) {
-      sh 'mvn -B verify'
-   }
+     
+    
+    }
+stages {
+        stage(Maven') {
+	      MAVEN_HOME = tool('M3'
+           sh '${MAVEN_HOME}/bin/mvn -B verify'
+        }
+    }
+}
 }
        }
 	   
